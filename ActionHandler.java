@@ -1,82 +1,53 @@
 package NavalBattle;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
-public class ActionHandler implements MouseListener {
-//    JButton button[][] = new JButton[11][11];
-    JButton but;
+public class ActionHandler implements ActionListener {
+    static int counter=0;
+    Boat boat = new Boat();
+    ImageIcon image = boat.createImage();
+    int c = 0;
+    static int flag = 0;
 
-    BufferedImage myPicture = ImageIO.read(new File("/home/hikmet/Desktop/595a7960d639a15d096a226d.png"));
-    BufferedImage resized = resize(myPicture,20,20);
-    JLabel image = new JLabel(new ImageIcon(resized));
-
-    public ActionHandler() throws IOException {
+    public void setFlag(int flag){
+        ActionHandler.flag = flag;
     }
-//    Dimension size = image.getPreferredSize();
 
-//    public ActionHandler(JButton button[][], JLabel img) throws IOException {
-//        for (int i = 0; i < 11; i++) {
-//            for (int j = 0; j < 11; j++) {
-//                button[i][j].add(img);
+    public ActionHandler() throws IOException { }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+//        BattleShip battleShip = new BattleShip();
+        JButton but = (JButton) actionEvent.getSource();
+        if(c % 2 == 0){
+            if(counter++<30) {
+                but.setIcon(image);
+                but.setActionCommand("Setted");
+//                if (but.getActionCommand().equals("Setted")){
+//                    System.out.println("Setted "+ counter);
+//                }
+            }
+        }else {
+            but.setIcon(null);
+        }
+        c++;
+
+
+//        System.out.println(flag);
+
+//        if(counter == 30){
+//            try {
+//                JFrame attackframe1 = battleShip.AttackFrame(61,280,500,500);
+//                JFrame attackframe2 = battleShip.AttackFrame(761,280,500,500);
+//            } catch (IOException e) {
+//                e.printStackTrace();
 //            }
 //        }
-//    }
-
-//    @Override
-//    public void actionPerformed(ActionEvent actionEvent) {
-//        JButton but = (JButton) actionEvent.getSource();
-//        but.add(image);
-////        for (int i = 0; i < 11; i++) {
-////            for (int j = 0; j < 11; j++) {
-////                if (actionEvent.getSource() == button[i][j]){
-////                    button[i][j].add(image);
-////                }
-////            }
-////
-//    }
-
-    private static BufferedImage resize(BufferedImage myPicture, int height, int width) {
-        Image tmp = myPicture.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = resized.createGraphics();
-        g2d.drawImage(tmp,0,0,null);
-        g2d.dispose();
-        return resized;
     }
 
-    @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
-          System.exit(0);
-//        but = (JButton) mouseEvent.getSource();
-//        but.add(image);
-    }
 
-    @Override
-    public void mousePressed(MouseEvent mouseEvent) {
 
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent mouseEvent) {
-
-    }
 }

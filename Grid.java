@@ -1,34 +1,36 @@
 package NavalBattle;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.xml.soap.Text;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Grid extends JPanel {
 
 
     public Grid() throws IOException {
+        this.setSize(300, 450);
+        this.setLayout(new GridLayout(11,11));
     }
 
-    private static BufferedImage resize(BufferedImage myPicture, int height, int width) {
-    Image tmp = myPicture.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-    BufferedImage resized = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2d = resized.createGraphics();
-    g2d.drawImage(tmp,0,0,null);
-    g2d.dispose();
-    return resized;
+    public void addButtonsIntoPanel(JPanel panel, JButton button[][]){
+        for (int i = 0; i < 11; i++) {
+            for (int j = 0; j < 11; j++) {
+                button[i][j] = new JButton();
+                panel.add(button[i][j]);
+            }
+        }
+        button[1][0].setText("A"); button[0][1].setText("1");
+        button[2][0].setText("B"); button[0][2].setText("2");
+        button[3][0].setText("C"); button[0][3].setText("3");
+        button[4][0].setText("D"); button[0][4].setText("4");
+        button[5][0].setText("E"); button[0][5].setText("5");
+        button[6][0].setText("F"); button[0][6].setText("6");
+        button[7][0].setText("G"); button[0][7].setText("7");
+        button[8][0].setText("H"); button[0][8].setText("8");
+        button[9][0].setText("I"); button[0][9].setText("9");
+        button[10][0].setText("J"); button[0][10].setText("10");
     }
 
-    BufferedImage myPicture = ImageIO.read(new File("/home/hikmet/Desktop/595a7960d639a15d096a226d.png"));
-    BufferedImage resized = resize(myPicture, 50, 50);
 
- public void paintComponent(Graphics g){
-     super.paintComponent(g);
-     g.drawImage(resized, 100,100,this);
- }
 
 }

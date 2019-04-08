@@ -11,10 +11,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class MouseHandler implements MouseMotionListener, ActionListener {
-    BufferedImage myPicture = ImageIO.read(new File("/home/hikmet/Desktop/595a7960d639a15d096a226d.png"));
-    BufferedImage resized = resize(myPicture,20,20);
-    JLabel image = new JLabel(new ImageIcon(resized));
+public class MouseHandler implements MouseMotionListener {
+
     private int x, y;
 
     public MouseHandler(JLabel img) throws IOException {
@@ -34,12 +32,6 @@ public class MouseHandler implements MouseMotionListener, ActionListener {
     public void mouseMoved(MouseEvent mouseEvent) {
         x = mouseEvent.getX();
         y = mouseEvent.getY();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
-        JButton but = (JButton) actionEvent.getSource();
-        but.add(image);
     }
 
     private static BufferedImage resize(BufferedImage myPicture, int height, int width) {
