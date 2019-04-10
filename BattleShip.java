@@ -5,13 +5,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
 
 
 public class BattleShip  {
 
-    private static int flag = 0;
+//    public BattleShip(){
+//
+//    }
 
-    public JFrame User(int width, int height, int xPos, int yPos) throws IOException {
+//    private static int flag = 0;
+
+    public JFrame User(JButton button_set[][],int width, int height, int xPos, int yPos) throws IOException {
         JFrame frame = new JFrame();
         Grid abovePanel = new Grid();
         ImagePanel belowPanel = new ImagePanel();
@@ -51,33 +56,26 @@ public class BattleShip  {
 //            belowPanel.add(img[i]);
 //            img[i].setBounds(7 + i * 50, 7, size.width, size.height);
 //        }
-        JButton button[][] = new JButton[11][11];
-        abovePanel.addButtonsIntoPanel(abovePanel, button);
+        button_set = new JButton[11][11];
+        abovePanel.addButtonsIntoPanel(abovePanel, button_set);
 
 //        for (int i = 0; i < 14; i++) {
 //            new MouseHandler(img[i]);
 //        }
             for (int i = 0; i < 11; i++) {
                 for (int j = 0; j < 11; j++) {
-                    button[i][j].addActionListener(new ActionHandler());
+                    button_set[i][j].addActionListener(new ActionHandler());
 //                    flag++;
 //                    System.out.println(flag);
                 }
             }
 
-        for (int i = 0; i < 11; i++) {
-            for (int j = 0; j < 11; j++) {
-                if (button[i][j].getActionCommand().equals("Setted")){
-                    System.out.println("("+i+","+j+")");
-                }
-
-            }
-        }
 //        for (int i = 0; i < 11; i++) {
 //            for (int j = 0; j < 11; j++) {
-//                if (button[i][j].getText().equals("Setted")){
+//                if (button_set[i][j].getActionCommand().equals("Setted")){
 //                    System.out.println("("+i+","+j+")");
 //                }
+//
 //            }
 //        }
 
@@ -98,18 +96,15 @@ public class BattleShip  {
         return frame;
     }
 
-    public JFrame AttackFrame(int xPos, int yPos, int width, int height) throws IOException {
+    public JFrame AttackFrame(JButton button_attack[][],int xPos, int yPos, int width, int height) throws IOException {
         JFrame attackframe = new JFrame();
-        JButton button[][] = new JButton[11][11];
+        button_attack = new JButton[11][11];
         Grid attackpanel = new Grid();
-        attackpanel.addButtonsIntoPanel(attackpanel, button);
+        attackpanel.addButtonsIntoPanel(attackpanel, button_attack);
 //        for (int i = 0; i < 11; i++) {
 //            for (int j = 0; j < 11; j++) {
-//                button[i][j].addActionListener(new ActionListener() {
-//                    @Override
-//                    public void actionPerformed(ActionEvent actionEvent) {
-//                        System.out.println(ActionHandler.flag++);
-//                    }
+//                button_attack[i][j].addActionListener(actionEvent -> {
+////                    ActionHandler.detectClick(button_attack);
 //                });
 //            }
 //        }

@@ -1,4 +1,5 @@
 package NavalBattle;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +8,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class Boat {
+
+//    public int NumberOfShips = 4;
+//    public int ShipLives = 20; // 20 for example
+
 
     public Boat(){ }
 

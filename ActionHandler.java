@@ -12,11 +12,15 @@ public class ActionHandler implements ActionListener {
     int c = 0;
     static int flag = 0;
 
-    public void setFlag(int flag){
-        ActionHandler.flag = flag;
-    }
+//    public void setFlag(int flag){
+//        ActionHandler.flag = flag;
+//    }
 
     public ActionHandler() throws IOException { }
+
+//    public static void detectClick(){
+//            if ()
+//    }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
