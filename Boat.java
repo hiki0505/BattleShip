@@ -12,6 +12,8 @@ public class Boat {
 //    public int NumberOfShips = 4;
 //    public int ShipLives = 20; // 20 for example
 //    some change for test
+    //changes for user2
+
 
     public Boat(){ }
 
