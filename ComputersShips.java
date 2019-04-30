@@ -3,7 +3,7 @@ package NavalBattle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComputersShips extends Ships{
+public class ComputersShips extends Ships {
 
     public static final List<ComputersShips> shipsList = new ArrayList<>();
     public static int countOfBattleShip;
@@ -12,7 +12,7 @@ public class ComputersShips extends Ships{
     public static int countOfSubmarine;
     public static int countAliveShip;
 
-    public static void clearAll(){
+    public static void clearAll() {
         shipsList.clear();
         countOfBattleShip = countOfCruiser = countOfDestroyer = countOfSubmarine = countAliveShip = 0;
     }
@@ -23,6 +23,7 @@ public class ComputersShips extends Ships{
             Battle.getComputerField()[c.letter][c.number] = Battle.getShip();
         }
     }
+
     @Override
     public void areaAroundTheShip() {
         for (Coordinates c : this.aroundCoordinates) {
@@ -31,8 +32,8 @@ public class ComputersShips extends Ships{
     }
 
     public void validation() {
-        if(this.validationOnField()){
-            if (this.validationOtherShip()){
+        if (this.validationOnField()) {
+            if (this.validationOtherShip()) {
                 shipsList.add(this);
                 switch (countOfDecker) {
                     case 4:
@@ -58,12 +59,12 @@ public class ComputersShips extends Ships{
     }
 
     @Override
-    public boolean validationOtherShip(){
+    public boolean validationOtherShip() {
         for (int i = 0; i < this.countOfDecker; i++) {
             int thisNumber = this.coordinates[i].number;
             int thisLetter = this.coordinates[i].letter;
             for (ComputersShips sh : shipsList) {
-                for (int j = 0; j < sh.coordinates.length; j++ ) {
+                for (int j = 0; j < sh.coordinates.length; j++) {
                     int shipNumber = sh.coordinates[j].number;
                     int shipLetter = sh.coordinates[j].letter;
                     if ((thisNumber == shipNumber && thisLetter == shipLetter)
@@ -85,3 +86,5 @@ public class ComputersShips extends Ships{
             }
         }
         return true;
+    }
+}
